@@ -1,6 +1,9 @@
 package es.roberto.gestionexamenesbackend.dto.pregunta;
 
 import lombok.*;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Getter
 @Setter

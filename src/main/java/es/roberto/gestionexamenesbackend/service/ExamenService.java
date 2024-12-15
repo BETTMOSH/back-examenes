@@ -12,6 +12,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Slf4j
 @RequiredArgsConstructor
@@ -38,20 +41,6 @@ public class ExamenService {
     public Examen obtenerExamen(Long examenId) {
         return examenRepository.findById(examenId).get();
     }
-
-
-    /*public void eliminarExamen(Long examenId) throws Exception{
-
-        examen.setExamenId(examenId);
-        examenRepository.delete(examen);
-        Examen examen = examenRepository.findById(examenId)
-                .orElseThrow(() -> new Exception("Examen no encontrado"));
-        //verificamos si hay relacion
-        if (!examen.getPreguntas().isEmpty()) {
-            throw new Exception("El Examen tiene preguntas asociadas");
-        }
-        examenRepository.delete(examen);
-    }*/
 
 
     public List<Examen> listarExamenesDeUnaCategoria(Categoria categoria) {

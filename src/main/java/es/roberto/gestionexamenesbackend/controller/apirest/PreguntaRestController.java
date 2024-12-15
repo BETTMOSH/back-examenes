@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Slf4j
 @Data
@@ -87,7 +90,6 @@ public class PreguntaRestController {
         return ResponseEntity.ok(preguntas);
     }
 
-    @Transactional
     @PostMapping("/evaluar-examen")
     public ResponseEntity<?> evaluarExamen(@RequestBody List<Pregunta> preguntas){
         double puntosMaximos = 0;

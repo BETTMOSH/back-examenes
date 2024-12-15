@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * @autor Roberto
+ * @autor Roberto Ledezma
  */
 
 @Slf4j
@@ -86,6 +86,7 @@ public class AuthenticationController {
             throw  new Exception("Credenciales invalidas " + e.getMessage());
         }
     }
+
 
     /**
      * Método para obtener el usuario actual

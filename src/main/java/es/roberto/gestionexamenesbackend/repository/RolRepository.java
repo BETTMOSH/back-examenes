@@ -5,6 +5,9 @@ import es.roberto.gestionexamenesbackend.entity.Rol;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
+/**
+ * @author Roberto Ledezma
+ */
 
 public interface RolRepository extends JpaRepository<Rol, Long> {
 

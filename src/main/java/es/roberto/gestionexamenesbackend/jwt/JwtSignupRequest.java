@@ -8,6 +8,9 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.util.Set;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Data
 @AllArgsConstructor

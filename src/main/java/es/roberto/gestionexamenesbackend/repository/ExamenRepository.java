@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.Optional;
+/**
+ * @author Roberto Ledezma
+ */
 
 public interface ExamenRepository extends JpaRepository<Examen, Long> {
 
@@ -16,4 +19,9 @@ public interface ExamenRepository extends JpaRepository<Examen, Long> {
     List<Examen> findByCategoriaAndActivo(Categoria categoria,Boolean estado);
 
     Optional<Examen> findByExamenId (Long examenId);
+
+    Examen findByTituloContainsIgnoreCase(String titulo);
+
+
+
 }

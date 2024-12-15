@@ -1,8 +1,11 @@
 package es.roberto.gestionexamenesbackend.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
-
+/**
+ * @author Roberto Ledezma
+ */
 @Builder
 @Getter
 @Setter
@@ -17,11 +20,16 @@ public class Pregunta {
 
     @Column(length = 500)
     private String contenido;
+    @NotEmpty
     private String opcion1;
+    @NotEmpty
     private String opcion2;
+    @NotEmpty
     private String opcion3;
+    @NotEmpty
     private String opcion4;
     @Transient
+    @NotEmpty
     private String respuestaDada;
 
     private String respuesta;

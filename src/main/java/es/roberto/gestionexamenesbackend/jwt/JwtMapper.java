@@ -3,6 +3,9 @@ package es.roberto.gestionexamenesbackend.jwt;
 import es.roberto.gestionexamenesbackend.entity.Usuario;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Mapper(
         componentModel = "spring",

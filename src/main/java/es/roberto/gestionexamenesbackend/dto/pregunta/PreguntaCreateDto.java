@@ -3,6 +3,9 @@ package es.roberto.gestionexamenesbackend.dto.pregunta;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Getter
 @Setter

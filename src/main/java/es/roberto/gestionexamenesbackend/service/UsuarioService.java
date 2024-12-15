@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * @author Roberto Ledezma
+ */
 
 @Slf4j
 @RequiredArgsConstructor
@@ -28,7 +31,7 @@ public class UsuarioService {
         validarUsuario(usuario);
         Optional<Usuario> usuarioLocalOptional = Optional.ofNullable(usuarioRepository.findByUsername(usuario.getUsername()));
         if (usuarioLocalOptional.isPresent()) {
-            throw new UsuarioFoundException("El usuario ya está presente");
+            throw new UsuarioFoundException("El usuario ya está registrado");
         }
 
         guardarRoles(usuarioRoles);

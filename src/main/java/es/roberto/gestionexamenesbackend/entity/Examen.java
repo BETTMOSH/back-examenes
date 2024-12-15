@@ -2,11 +2,14 @@ package es.roberto.gestionexamenesbackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * @author Roberto Ledezma
+ */
 @Builder
 @Getter
 @Setter
@@ -18,15 +21,17 @@ public class Examen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long examenId;
-
     private String titulo;
     private String descripcion;
+    @NotNull
     private String puntosMaximos;
+    @NotNull
     private String numeroDePreguntas;
     private boolean activo = false;
     private double nota;
 
     @ManyToOne
+    @JoinColumn(name = "categoria_id",nullable = false)
     private Categoria categoria;
 
     @OneToMany(mappedBy = "examen")

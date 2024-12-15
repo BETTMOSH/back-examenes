@@ -1,8 +1,8 @@
 package es.roberto.gestionexamenesbackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -15,6 +15,9 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Setter
 @Getter
@@ -28,7 +31,9 @@ public class Usuario implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long usuarioId;
     @Column(nullable = false, unique = true)
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String password;
     private String nombre;
     private String apellido;
@@ -50,6 +55,7 @@ public class Usuario implements UserDetails {
 
 
 
+    // Metodo para obtener los roles del usuario y convertirlos en GrantedAuthority
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.usuarioRoles.stream()

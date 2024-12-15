@@ -5,6 +5,9 @@ import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 
 import java.util.List;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Mapper(
         componentModel = "spring",

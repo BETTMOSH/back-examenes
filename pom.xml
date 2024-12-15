@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.5</version> <!-- Actualizamos a la version de spring boot actual -->
+        <version>3.4.0</version> <!-- Actualizamos a la version de spring boot actual -->
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>es.roberto</groupId>
@@ -32,7 +32,7 @@
         <org.mapstruct.version>1.6.2</org.mapstruct.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
         <!-- Json Web Token -->
-        <io.jsonwebtoken.version>0.12.6</io.jsonwebtoken.version>  <!-- Actualizamos a la version de jjwt actual -->
+        <io.jsonwebtoken.version>0.12.6</io.jsonwebtoken.version>  <!-- Actualizamos a la version de jwt actual -->
     </properties>
     <dependencies>
         <dependency>
@@ -51,15 +51,38 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
         </dependency>
+
+        <!-- actualizacion por vulnerabilidad -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.xmlunit</groupId>
+                    <artifactId>xmlunit-core</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.xmlunit</groupId>
+            <artifactId>xmlunit-core</artifactId>
+            <version>2.10.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -77,13 +100,6 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- H2 base de datos en desarrollo-->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-
         <!-- MariaDb base de datos en produccion-->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
@@ -95,6 +111,7 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
+            <version>9.0.0</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -149,6 +166,7 @@
             <groupId>com.github.database-rider</groupId>
             <artifactId>rider-spring</artifactId>
             <version>1.44.0</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>com.github.gavlyukovskiy</groupId>
@@ -197,18 +215,5 @@
         </plugins>
     </build>
     <repositories>
-        <repository>
-            <id>maven_central</id>
-            <name>Maven Central</name>
-            <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
     </repositories>
-    <!--<repositories>
-        <repository>
-            <id>maven_central</id>
-            <name>Maven Central</name>
-            <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
-    </repositories>-->
-
 </project>

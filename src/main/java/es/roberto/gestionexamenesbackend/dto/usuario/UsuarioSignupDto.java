@@ -6,6 +6,9 @@ import lombok.Builder;
 
 import java.time.LocalDate;
 import java.util.Set;
+/**
+ * @author Roberto Ledezma
+ */
 
 @Builder
 public record UsuarioSignupDto (

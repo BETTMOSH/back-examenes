@@ -1,16 +1,10 @@
-categoria:
+Categoria:
   - categoriaId: 1
     titulo: "Categoria 1"
     descripcion: "Descripcion 1"
-    "examenes": ["Examen 1",
-                 "Examen 2"]
   - categoriaId: 2
     titulo: "Categoria 2"
     descripcion: "Descripcion 2"
-    "examenes": ["Examen 3",
-                 "Examen 4"]
   - categoriaId: 3
     titulo: "Categoria 3"
     descripcion: "Descripcion 3"
-    "examenes": ["Examen 5",
-                 "Examen 6"]
