@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 /**
- * @autor Roberto Ledezma
+ * @author Roberto Ledezma
  */
 @Slf4j
 @RestController
@@ -31,8 +31,6 @@ public class CategoriaRestController {
     /**
      * Método para guardar una nueva categoría
      * ResponseEntity es una clase que representa toda la respuesta HTTP: código de estado, encabezados y cuerpo
-     * @RequestBody es una anotación de Spring que indica un método de controlador que recibe un objeto en el cuerpo de la solicitud HTTP
-     * @Valid es una anotación de Java que se utiliza para validar un objeto
      */
     @PostMapping("/")
     public ResponseEntity<Map<String, Object>> addCategoria(@Valid @RequestBody CategoriaCreateDto categDto) {
@@ -64,8 +62,7 @@ public class CategoriaRestController {
 
     /**
      * Método para obtener una categoría por su ID
-     * @PathVariable es una anotación de Spring que se utiliza para vincular una variable de método a una variable de plantilla de URI
-     */
+      */
     @GetMapping("/{categoriaId}")
     public ResponseEntity<CategoriaResponseDto> getOne(@PathVariable("categoriaId") Long categoriaId){
         Optional<Category> categoria = categoriaService.findByCategoriaId(categoriaId);
