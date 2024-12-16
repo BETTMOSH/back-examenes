@@ -1,6 +1,7 @@
 package es.roberto.gestionexamenesbackend.repository;
 
 import com.github.database.rider.core.api.configuration.DBUnit;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import es.roberto.gestionexamenesbackend.entity.Pregunta;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +29,7 @@ class PreguntaRepositoryTest {
     // Test para buscar una pregunta con su respuesta
     @Test
     void should_FindByRespuestaCorrecta() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Ingles")
                 .descripcion("Categoria de ingles")
@@ -68,7 +69,7 @@ class PreguntaRepositoryTest {
     // Test query method para buscar una respuesta correcta y el examen al que pertenece
     @Test
     void should_FindByExamenAndRespuesta() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Ingles")
                 .descripcion("Categoria de ingles")

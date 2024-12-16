@@ -1,5 +1,6 @@
 package es.roberto.gestionexamenesbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
@@ -28,12 +29,12 @@ public class Pregunta {
     private String opcion3;
     @NotEmpty
     private String opcion4;
-    @Transient
     @NotEmpty
     private String respuestaDada;
 
     private String respuesta;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
     private Examen examen;
 }

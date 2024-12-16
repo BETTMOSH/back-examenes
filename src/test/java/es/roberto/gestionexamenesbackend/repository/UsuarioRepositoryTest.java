@@ -1,6 +1,7 @@
 package es.roberto.gestionexamenesbackend.repository;
 
 import com.github.database.rider.core.api.configuration.DBUnit;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import es.roberto.gestionexamenesbackend.entity.Usuario;
 import lombok.extern.slf4j.Slf4j;
@@ -67,7 +68,7 @@ class UsuarioRepositoryTest {
     // Test para buscar un usuario por su examen
     @Test
     void should_FindByExamen() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Lengua")
                 .descripcion("Categoria de lengua")
@@ -109,7 +110,7 @@ class UsuarioRepositoryTest {
     // Test para buscar un usuario por su nota de examen
     @Test
     void should_FindByNotaExamen() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Lengua")
                 .descripcion("Categoria de lengua")

@@ -1,5 +1,6 @@
 package es.roberto.gestionexamenesbackend.config;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import es.roberto.gestionexamenesbackend.entity.*;
 
 import es.roberto.gestionexamenesbackend.service.CategoriaService;
@@ -36,24 +37,17 @@ public class InitData {
     private final PreguntaService preguntaService;
 
 
-    @Transactional
+
     @EventListener
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        initStorage();
         initUsuarios();
         /*initExamen();*/
 
     }
 
-    public void initStorage() {
-        storageService.deleteAll();
-        storageService.init();
-    }
-
     public void initUsuarios() {
         try {
             Usuario usuario = new Usuario();
-            usuario.setUsuarioId(1L);
             usuario.setNombre("Roberto Carlos");
             usuario.setApellido("Ledezma");
             usuario.setUsername("bettmosh");

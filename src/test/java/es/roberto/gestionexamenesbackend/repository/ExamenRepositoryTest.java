@@ -1,6 +1,7 @@
 package es.roberto.gestionexamenesbackend.repository;
 
 import com.github.database.rider.core.api.configuration.DBUnit;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import es.roberto.gestionexamenesbackend.entity.Usuario;
 import lombok.extern.slf4j.Slf4j;
@@ -31,7 +32,7 @@ class ExamenRepositoryTest {
     //test para crear un examen
     @Test
     public void encontrarExamen() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Lengua")
                 .descripcion("Categoria de lengua")
@@ -70,7 +71,7 @@ class ExamenRepositoryTest {
     // test para buscar una categoria de un examen
     @Test
     public void testFindByCategoria() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Frances")
                 .descripcion("Categoria de frances")
@@ -108,7 +109,7 @@ class ExamenRepositoryTest {
     // test para buscar examenes activos
     @Test
     public void testFindByActivo() {
-        Categoria categoria = Categoria.builder()
+        Category categoria = Category.builder()
                 .categoriaId(1L)
                 .titulo("Frances")
                 .descripcion("Categoria de frances")
