@@ -32,7 +32,7 @@ public class Examen {
 
     @ManyToOne
     @JoinColumn(name = "categoria_id",nullable = false)
-    private Categoria categoria;
+    private Category categoria;
 
     @OneToMany(mappedBy = "examen")
     @JsonIgnore

@@ -1,7 +1,6 @@
 package es.roberto.gestionexamenesbackend.repository;
 
 import com.github.database.rider.core.api.configuration.DBUnit;
-import es.roberto.gestionexamenesbackend.entity.Categoria;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import es.roberto.gestionexamenesbackend.entity.Pregunta;
 import lombok.extern.slf4j.Slf4j;

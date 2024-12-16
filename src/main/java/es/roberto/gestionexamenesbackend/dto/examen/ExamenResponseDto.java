@@ -1,10 +1,8 @@
 package es.roberto.gestionexamenesbackend.dto.examen;
 
-import es.roberto.gestionexamenesbackend.dto.categoria.CategoriaResponseDto;
-import es.roberto.gestionexamenesbackend.entity.Categoria;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.entity.Pregunta;
 import es.roberto.gestionexamenesbackend.entity.Usuario;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -26,7 +24,7 @@ public class ExamenResponseDto {
     private String puntosMaximos;
     private String numeroDePreguntas;
     private boolean activo;
-    private Categoria categoria;  // Información de la categoría
+    private Category categoria;  // Información de la categoría
     private Set<Pregunta> preguntas; // Información de las preguntas
     private Usuario usuario; // Información del usuario
 }

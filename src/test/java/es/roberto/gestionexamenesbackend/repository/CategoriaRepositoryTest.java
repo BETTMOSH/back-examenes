@@ -3,7 +3,6 @@ package es.roberto.gestionexamenesbackend.repository;
 import com.github.database.rider.core.api.configuration.DBUnit;
 import com.github.database.rider.core.api.dataset.DataSet;
 
-import es.roberto.gestionexamenesbackend.entity.Categoria;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

@@ -2,7 +2,7 @@ package es.roberto.gestionexamenesbackend.controller.apirest;
 
 import es.roberto.gestionexamenesbackend.dto.examen.ExamenCreateDto;
 import es.roberto.gestionexamenesbackend.dto.examen.ExamenMapper;
-import es.roberto.gestionexamenesbackend.entity.Categoria;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import es.roberto.gestionexamenesbackend.entity.Usuario;
 import es.roberto.gestionexamenesbackend.service.CategoriaService;
@@ -41,7 +41,7 @@ public class ExamenRestController {
             Examen examen = mapper.toEntity(examenDto);
 
             /*TODO: Obtenemos y asignamos la entidad Categoria a partir del ID*/
-            Categoria categoria = categoriaService.findByCategoriaId(examenDto.getCategoriaId())
+            Category categoria = categoriaService.findByCategoriaId(examenDto.getCategoriaId())
                     .orElseThrow(() -> new RuntimeException("Categoría no encontrada"));
             examen.setCategoria(categoria);
 
@@ -119,7 +119,7 @@ public class ExamenRestController {
      */
     @GetMapping("/categoria/{categoriaId}")
     public List<Examen> listarExamenesDeUnaCategoria(@PathVariable("categoriaId") Long categoriaId){
-        Categoria categoria = new Categoria();
+        Category categoria = new Category();
         categoria.setCategoriaId(categoriaId);
         return examenService.listarExamenesDeUnaCategoria(categoria);
     }
@@ -137,7 +137,7 @@ public class ExamenRestController {
      */
     @GetMapping("/categoria/activo/{categoriaId}")
     public List<Examen> listarActivosDeUnaCategoria(@PathVariable("categoriaId") Long categoriaId){
-        Categoria categoria = new Categoria();
+        Category categoria = new Category();
         categoria.setCategoriaId(categoriaId);
         return examenService.findExamActivCategoria(categoria);
     }

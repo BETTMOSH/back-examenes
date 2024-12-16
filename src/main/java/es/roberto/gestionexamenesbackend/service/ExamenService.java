@@ -1,6 +1,6 @@
 package es.roberto.gestionexamenesbackend.service;
 
-import es.roberto.gestionexamenesbackend.entity.Categoria;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.entity.Examen;
 import es.roberto.gestionexamenesbackend.repository.ExamenRepository;
 import lombok.RequiredArgsConstructor;
@@ -43,7 +43,7 @@ public class ExamenService {
     }
 
 
-    public List<Examen> listarExamenesDeUnaCategoria(Categoria categoria) {
+    public List<Examen> listarExamenesDeUnaCategoria(Category categoria) {
         return this.examenRepository.findByCategoria(categoria);
     }
 
@@ -53,7 +53,7 @@ public class ExamenService {
     }
 
 
-    public List<Examen> findExamActivCategoria(Categoria categoria) {
+    public List<Examen> findExamActivCategoria(Category categoria) {
         return examenRepository.findByCategoriaAndActivo(categoria,true);
     }
 

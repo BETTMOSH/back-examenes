@@ -4,7 +4,7 @@ import es.roberto.gestionexamenesbackend.dto.categoria.CategoriaCreateDto;
 import es.roberto.gestionexamenesbackend.dto.categoria.CategoriaMapper;
 import es.roberto.gestionexamenesbackend.dto.categoria.CategoriaResponseDto;
 import es.roberto.gestionexamenesbackend.dto.categoria.CategoriaUpdateDto;
-import es.roberto.gestionexamenesbackend.entity.Categoria;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.service.CategoriaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -68,7 +68,7 @@ public class CategoriaRestController {
      */
     @GetMapping("/{categoriaId}")
     public ResponseEntity<CategoriaResponseDto> getOne(@PathVariable("categoriaId") Long categoriaId){
-        Optional<Categoria> categoria = categoriaService.findByCategoriaId(categoriaId);
+        Optional<Category> categoria = categoriaService.findByCategoriaId(categoriaId);
 
         return categoria
                 .map(m -> new ResponseEntity<>(mapper.toDto(m), HttpStatus.OK))
@@ -84,7 +84,7 @@ public class CategoriaRestController {
         if (cateDto == null)
             return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
         try {
-            Optional<Categoria> categoriaDB = categoriaService.findByCategoriaId(categoriaId);
+            Optional<Category> categoriaDB = categoriaService.findByCategoriaId(categoriaId);
             if (categoriaDB.isPresent()) {
                 categoriaService.save(mapper.toEntity(cateDto));
                 return new ResponseEntity<>(null, HttpStatus.OK);

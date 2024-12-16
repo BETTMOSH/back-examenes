@@ -1,6 +1,6 @@
 package es.roberto.gestionexamenesbackend.dto.categoria;
 
-import es.roberto.gestionexamenesbackend.entity.Categoria;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 
@@ -15,9 +15,9 @@ import java.util.List;
 )
 public interface CategoriaMapper {
 
-    CategoriaResponseDto toDto(Categoria entity);
-    Categoria toEntity(CategoriaCreateDto dto);
-    Categoria toEntity(CategoriaUpdateDto dto);
+    CategoriaResponseDto toDto(Category entity);
+    Category toEntity(CategoriaCreateDto dto);
+    Category toEntity(CategoriaUpdateDto dto);
 
-    List<CategoriaResponseDto> toDtoList(List<Categoria> list);
+    List<CategoriaResponseDto> toDtoList(List<Category> list);
 }

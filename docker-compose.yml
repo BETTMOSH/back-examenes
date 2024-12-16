@@ -1,0 +1,57 @@
+
+services:
+  app-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring_app
+    image: gestor-java_app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://active_db:3306/sistema_examenes?createDatabaseIfNotExist=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345
+    restart: always
+    depends_on:
+      - active_db
+    networks:
+      - app-network
+  app-frontend:
+    build:
+      context: ../gestion-examen-frontend
+      dockerfile: Dockerfile
+    container_name: angular_app
+    image: gestor-angular_app
+    environment:
+      - NODE_ENV=production
+    ports:
+      - "4200:80"
+    depends_on:
+      - app-backend
+    networks:
+      - app-network
+  active_db:
+    image: mariadb:latest
+    container_name: mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_DATABASE: sistema_examenes
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8180:80"
+    depends_on:
+      - app-frontend
+      - app-backend
+    networks:
+      - app-network
+
+networks:
+  app-network:

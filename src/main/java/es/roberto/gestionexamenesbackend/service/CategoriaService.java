@@ -1,15 +1,14 @@
 package es.roberto.gestionexamenesbackend.service;
 
-import es.roberto.gestionexamenesbackend.entity.Categoria;
+import es.roberto.gestionexamenesbackend.entity.Category;
 import es.roberto.gestionexamenesbackend.repository.CategoriaRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
+
 /**
  * @author Roberto Ledezma
  */
@@ -21,15 +20,15 @@ public class CategoriaService {
 
     private final CategoriaRepository categoriaRepository;
 
-    public Categoria save(Categoria categoria) {
+    public Category save(Category categoria) {
         return categoriaRepository.save(categoria);
     }
 
-    public List<Categoria> findAll() {
+    public List<Category> findAll() {
         return categoriaRepository.findAll();
     }
 
-    public Optional<Categoria> findByCategoriaId(Long categoriaId) {
+    public Optional<Category> findByCategoriaId(Long categoriaId) {
         return categoriaRepository.findByCategoriaId(categoriaId);
     }
 
@@ -38,7 +37,7 @@ public class CategoriaService {
     }
 
     //init
-    public Categoria findByTitulo(String titulo) {
+    public Category findByTitulo(String titulo) {
         return categoriaRepository.findByTituloContainsIgnoreCase(titulo);
     }
 }
