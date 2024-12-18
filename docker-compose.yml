@@ -1,34 +1,6 @@
+version: '3.8'
 
 services:
-  app-backend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: spring_app
-    ports:
-      - "8080:8080"
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mariadb://active_db:3306/sistema_examenes?createDatabaseIfNotExist=true&serverTimezone=UTC
-      SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: 12345
-    restart: always
-    depends_on:
-      - active_db
-    networks:
-      - app-network
-  app-frontend:
-    build:
-      context: ../front-examenes-angular18
-      dockerfile: Dockerfile
-    container_name: angular_app
-    environment:
-      - NODE_ENV=production
-    ports:
-      - "4200:80"
-    depends_on:
-      - app-backend
-    networks:
-      - app-network
   active_db:
     image: mariadb:latest
     container_name: mariadb
@@ -40,11 +12,39 @@ services:
       - "3306:3306"
     networks:
       - app-network
+
+  app-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: spring_app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://active_db:3306/sistema_examenes?createDatabaseIfNotExist=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 12345
+    restart: always
+    depends_on:
+      - active_db
+    networks:
+      - app-network
+
+  app-frontend:
+    build:
+      context: ../front-examenes-angular18
+      dockerfile: Dockerfile
+    container_name: angular_app
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - app-backend
+    networks:
+      - app-network
+
   nginx:
     image: nginx:latest
-    container_name: nginx
+    container_name: nginx_proxy
     ports:
-      - "8180:80"
+      - "80:80" # Se expone en el puerto 80 de la máquina host
     depends_on:
       - app-frontend
       - app-backend
@@ -53,3 +53,4 @@ services:
 
 networks:
   app-network:
+    driver: bridge

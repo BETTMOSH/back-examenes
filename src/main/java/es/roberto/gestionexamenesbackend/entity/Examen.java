@@ -2,6 +2,7 @@ package es.roberto.gestionexamenesbackend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -23,9 +24,11 @@ public class Examen {
     private Long examenId;
     private String titulo;
     private String descripcion;
-    @NotNull
+    @NotNull(message = "Los puntos máximos son requeridos")
+    @Min(value = 1)
     private String puntosMaximos;
-    @NotNull
+    @NotNull(message = "El número de preguntas es requerido")
+    @Min(value = 1)
     private String numeroDePreguntas;
     private boolean activo = false;
     private double nota;

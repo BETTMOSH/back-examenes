@@ -29,12 +29,11 @@ public class Pregunta {
     private String opcion3;
     @NotEmpty
     private String opcion4;
-    @NotEmpty
+    @Column(nullable = true)
     private String respuestaDada;
-
+    @Column(nullable = true)
     private String respuesta;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnore
     private Examen examen;
 }

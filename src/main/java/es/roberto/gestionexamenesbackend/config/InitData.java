@@ -28,7 +28,6 @@ import java.util.*;
 @Component
 public class InitData {
 
-    private final StorageService storageService;
     private final UsuarioService usuarioService;
     private final PasswordEncoder passwordEncoder;
 
@@ -37,7 +36,7 @@ public class InitData {
     private final PreguntaService preguntaService;
 
 
-
+    @Transactional
     @EventListener
     public void onApplicationEvent(ApplicationReadyEvent event) {
         initUsuarios();

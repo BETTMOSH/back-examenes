@@ -25,7 +25,9 @@ public class PreguntaCreateDto {
     private String opcion3;
     @NotEmpty
     private String opcion4;
-    @NotEmpty
+
+    private String respuestaDada;
+
     private String respuesta;
 
     private Examen examen;

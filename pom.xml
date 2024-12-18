@@ -83,6 +83,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- H2 base de datos en memoria -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- MariaDb base de datos en produccion-->
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>

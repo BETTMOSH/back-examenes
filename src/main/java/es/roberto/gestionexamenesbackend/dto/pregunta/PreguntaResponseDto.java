@@ -18,5 +18,6 @@ public class PreguntaResponseDto {
     private String opcion3;
     private String opcion4;
     private String respuesta; // Respuesta correcta
+    private String respuestaDada; // Respuesta dada por el usuario
     private Long examenId; // ID del examen al que pertenece
 }

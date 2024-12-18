@@ -68,7 +68,6 @@ public class AuthenticationController {
 
         // Crear la respuesta con todos los valores
         JwtSigninResponse response = new JwtSigninResponse(token, username, roles);
-
         return ResponseEntity.ok(response);
     }
 
@@ -101,16 +100,6 @@ public class AuthenticationController {
         return usuarioRepository.findByUsername(principal.getName());
 
     }
-
-    /*@GetMapping("/actual-usuario")
-    public ResponseEntity<String> obtenerUsuarioActual(Principal principal) {
-        if (principal == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("No hay usuario autenticado");
-        }
-        String username = principal.getName();
-        return ResponseEntity.ok("Usuario autenticado: " + username);
-
-    }*/
 
     /**
      * Método que invalida el token del usuario

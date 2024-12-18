@@ -17,8 +17,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ExamenCreateDto {
 
-    @NotNull( message = "la categoria debe ir rellenada")
-    private Long categoriaId;
+
     @NotEmpty
     private String titulo;
     @NotEmpty
@@ -27,6 +26,8 @@ public class ExamenCreateDto {
     private String numeroDePreguntas;
     private boolean activo = false;
     private double nota;
+    @NotNull( message = "la categoria debe ir rellenada")
+    private Long categoriaId;
     @NotNull (message = "el usuario debe ir rellenado")
     private Long usuarioId;
 }
